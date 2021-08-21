@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K4kmRs2KqkA5zsIjeeMGyxJgY9zoPv2vZreQ9vCKPBIvM+q/Xcq4uEyXO4CnoWF7mPQSMVXZOMC7nlWb6GPKKQ==",
+  "dgSpecHash": "YH9d9/AHu0oZHChvSdpkJXASLwYLaPD3LOVQqnMWnjV/lAPYLbXX4M2g8vLyFI2rrXQhjUsUYx8PptJ0e0nbyQ==",
   "success": true,
   "projectFilePath": "C:\\Dev\\Pokemon-API\\Pokemon-API\\Pokemon-API.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Users\\nicot\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0\\microsoft.extensions.primitives.3.0.0.nupkg.sha512",
     "C:\\Users\\nicot\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\nicot\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.14\\microsoft.visualstudio.azure.containers.tools.targets.1.10.14.nupkg.sha512",
+    "C:\\Users\\nicot\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\nicot\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\nicot\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
     "C:\\Users\\nicot\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
