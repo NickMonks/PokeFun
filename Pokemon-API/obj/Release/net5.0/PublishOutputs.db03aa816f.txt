@@ -1,0 +1,14 @@
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Pokemon-API.exe
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\appsettings.Development.json
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\appsettings.json
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Pokemon-API.dll
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Pokemon-API.deps.json
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Pokemon-API.runtimeconfig.json
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Pokemon-API.pdb
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\AutoMapper.dll
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Microsoft.OpenApi.dll
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Newtonsoft.Json.dll
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Dev\Pokemon-API\Pokemon-API\obj\Docker\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
