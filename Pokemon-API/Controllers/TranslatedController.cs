@@ -12,6 +12,9 @@ using System.Text.Json;
 using Pokemon_API.Models;
 using System.Text;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
+using Pokemon_API.Resources;
+using Pokemon_API.Utilities;
 
 namespace Pokemon_API.Controllers
 {
@@ -19,14 +22,21 @@ namespace Pokemon_API.Controllers
     [ApiController]
     public class TranslatedController : ControllerBase
     {
-        private readonly IMapper mapper;
-        private readonly IHttpClientFactory clientFactory;
+        private readonly IMapper _mapper;
+        private readonly IHttpClientFactory _clientFactory;
+        private readonly IConfiguration _configuration;
+        private readonly IPokemonAsync _pokemonAsync;
 
-        public TranslatedController(IMapper mapper,
-            IHttpClientFactory clientFactory)
+        public TranslatedController(
+            IMapper mapper,
+            IHttpClientFactory clientFactory,
+            IConfiguration configuration,
+            IPokemonAsync pokemonAsync)
         {
-            this.mapper = mapper;
-            this.clientFactory = clientFactory;
+            this._mapper = mapper;
+            this._clientFactory = clientFactory;
+            this._configuration = configuration;
+            this._pokemonAsync = pokemonAsync;
         }
 
         [HttpGet]
@@ -34,36 +44,19 @@ namespace Pokemon_API.Controllers
         {
             try
             {
-                string uri = "https://pokeapi.co/api/v2/pokemon-species/" + pokemon;
-                var request = new HttpRequestMessage(HttpMethod.Get, uri);
-                var client = clientFactory.CreateClient();
-                HttpResponseMessage response = await client.SendAsync(request);
-                var result = await response.Content.ReadFromJsonAsync<Pokemon>();
-                PokemonModel model = mapper.Map<PokemonModel>(result);
 
-                // remove the symbols in the Description property:
-                string descriptionWithoutSymbol = model.Description.Replace("\n", " ").Replace("\f", " ");
-                model.Description = descriptionWithoutSymbol;
-
-                // perform business logic of the API - If the habitat is cave, or is_legendary returns true, then we use the yoga translation.
-                // otherwise, we use the shakespeare translation:
-                if (model.Habitat == "cave" || model.Is_legendary)
-                {
-                    var translatedDescription = await Translator(model.Description, "yoda", clientFactory);
-                    model.Description = translatedDescription;
-                } 
-                else
-                {
-                    var translatedDescription = await Translator(model.Description, "shakespeare", clientFactory);
-                    model.Description = translatedDescription;
-                }
+                pokemon = pokemon.ToLower();
+                Pokemon entity = await _pokemonAsync.GetPokemonModelAsync(pokemon, _clientFactory);
+                PokemonModel model = _pokemonAsync.MapPokemonModel(_mapper, entity);
+                Utility.RemoveSpecialCharacters(model);
+                await TranslateModel(model);
 
                 ///TODO: check if it fails in case is empty
-                
+
                 return model;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Cannot translate the pokemon description");
@@ -71,7 +64,22 @@ namespace Pokemon_API.Controllers
             }
         }
 
-        
+        private async Task TranslateModel(PokemonModel model)
+        {
+            // perform business logic of the API - If the habitat is cave, or is_legendary returns true, then we use the yoga translation.
+            // otherwise, we use the shakespeare translation:
+            if (model.Habitat == "cave" || model.Is_legendary)
+            {
+                var translatedDescription = await Translator(model.Description, "yoda", _clientFactory);
+                model.Description = translatedDescription;
+            }
+            else
+            {
+                var translatedDescription = await Translator(model.Description, "shakespeare", _clientFactory);
+                model.Description = translatedDescription;
+            }
+        }
+
         public static async Task<string> Translator(string description, string translationType, IHttpClientFactory clientFactory)
         {
             try
@@ -93,7 +101,7 @@ namespace Pokemon_API.Controllers
 
                 return newDescription;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 // If method fails (for whatever reason :-) ), then do not perform a translation at all
