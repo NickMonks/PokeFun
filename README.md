@@ -39,25 +39,48 @@ Response body:
 }
 ```
 
-**_Example Endpoint II_**:
+**_Example Endpoint II_: Yoda Translation**:
 
 Request:
 
-https://kaioq8froi.execute-api.eu-west-2.amazonaws.com/Prod/pokemon/mewtwo
+https://kaioq8froi.execute-api.eu-west-2.amazonaws.com/Prod/pokemon/translated/mewtwo
 
 Response body:
 
 ```json
-{ 
-  "habitat": "rare", 
-  "is_legendary": true, 
-  "name": "mewtwo", 
-  "description": "It was created by a scientist after years of horrific gene splicing and DNA engineering experiments." 
+{
+  "habitat": "rare",
+  "is_legendary": true,
+  "name": "mewtwo",
+  "description": "Created by a scientist after years of horrific gene splicing and dna engineering experiments,  it was."
 }
 ```
 
+**_Example Endpoint II_: Shakespeare Translation**:
 
+Request:
 
-### How to build
+https://kaioq8froi.execute-api.eu-west-2.amazonaws.com/Prod/pokemon/translated/geodude
+
+Response body:
+
+```json
+{
+  "habitat": "mountain",
+  "is_legendary": false,
+  "name": "geodude",
+  "description": "Did find in fields and mountains. Mistaking those folk for boulders, people oft grise or trippeth on those folk."
+}
+```
+
+### How to build (Developers)
+
+The 
 
 ### Future Improvements
+
+Obviously, the project can be improved quite a lot in different areas. And that's cool, because it means room for improvement!
+
+I wrote main ideas inside the (Project)[] window in Github, but I'll list them here too:
+
+
