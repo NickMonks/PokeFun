@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Pokemon_API.Controllers;
 using Pokemon_API.Exceptions;
-using Pokemon_API.Resources;
+using Pokemon_API.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,24 +40,26 @@ namespace Pokemon_API
             });
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddHttpClient();
 
+            // HttpClient Services
+            services.AddHttpClient();
             services.AddHttpClient("pokemon", c =>
             {
                 c.BaseAddress = new Uri(Configuration.GetValue<string>("pokemon"));
             });
 
-            services.AddHttpClient("yoda", c =>
+            services.AddHttpClient("translation", c =>
             {
-                c.BaseAddress = new Uri(Configuration.GetValue<string>("yoda"));
+                c.BaseAddress = new Uri(Configuration.GetValue<string>("translation"));
             });
 
-            services.AddHttpClient("shakespeare", c =>
-            {
-                c.BaseAddress = new Uri(Configuration.GetValue<string>("shakespeare"));
-             });
 
+            // Register scoped services used for business logic 
             services.AddScoped<IPokemonAsync, PokemonResult>();
+            services.AddScoped<IPokemonTranslate, PokemonTranslate>();
+
+            //Register a health check, to check if the application is running 
+            services.AddHealthChecks();
 
 
 
@@ -83,6 +85,7 @@ namespace Pokemon_API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/healthcheck");
             });
         }
     }
