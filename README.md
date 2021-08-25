@@ -24,6 +24,38 @@ https://kaioq8froi.execute-api.eu-west-2.amazonaws.com/Prod
 
 **_Example Endpoint I_**:
 
+Request:
+
+https://kaioq8froi.execute-api.eu-west-2.amazonaws.com/Prod/pokemon/mewtwo
+
+Response body:
+
+```json
+{ 
+  "habitat": "rare", 
+  "is_legendary": true, 
+  "name": "mewtwo", 
+  "description": "It was created by a scientist after years of horrific gene splicing and DNA engineering experiments." 
+}
+```
+
+**_Example Endpoint II_**:
+
+Request:
+
+https://kaioq8froi.execute-api.eu-west-2.amazonaws.com/Prod/pokemon/mewtwo
+
+Response body:
+
+```json
+{ 
+  "habitat": "rare", 
+  "is_legendary": true, 
+  "name": "mewtwo", 
+  "description": "It was created by a scientist after years of horrific gene splicing and DNA engineering experiments." 
+}
+```
+
 
 
 ### How to build
