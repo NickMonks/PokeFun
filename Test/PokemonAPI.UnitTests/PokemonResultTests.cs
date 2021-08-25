@@ -102,11 +102,6 @@ namespace PokemonAPI.UnitTests
 
             var result = await pokemonResultMock.GetPokemonModelAsync("mewtwo", clientMock);
             var model = pokemonResultMock.MapPokemonModel(mapperMock, result);
-
-
-
-
-
         }
 
     }

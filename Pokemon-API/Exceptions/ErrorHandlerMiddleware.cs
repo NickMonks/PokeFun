@@ -34,12 +34,18 @@ namespace Pokemon_API.Exceptions
                         responseModel.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
                         break;
 
-                    case KeyNotFoundException:
-
+                    case PokemonNotFoundException:
+                        
                         responseModel.StatusCode = (int)HttpStatusCode.NotFound;
                         break;
                     
+                    case PokemonTranslateAPIExhaustion:
+                        
+                        responseModel.StatusCode = (int)HttpStatusCode.TooManyRequests;
+                        break;
+                    
                     default:
+                        //  if no exception is found, will deem it as a server error
                         responseModel.StatusCode = (int)HttpStatusCode.InternalServerError;
                         break;
                 }

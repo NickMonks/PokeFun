@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pokemon-API", "Pokemon-API\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A93D5A78-8AE5-4FC4-B491-2DCABA3F281C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonAPI.UnitTests", "Test\PokemonAPI.UnitTests\PokemonAPI.UnitTests.csproj", "{0FAD15C7-EADE-47FB-91ED-DDFF63BBE222}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonAPI.IntegrationTests", "Test\PokemonAPI.IntegrationTests\PokemonAPI.IntegrationTests.csproj", "{881434FA-94C8-480C-A073-71CC118E9AE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonAPI.IntegrationTests", "Test\PokemonAPI.IntegrationTests\PokemonAPI.IntegrationTests.csproj", "{881434FA-94C8-480C-A073-71CC118E9AE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{4C05B868-AEF1-46A3-80FB-EF5FDE8EB999}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C05B868-AEF1-46A3-80FB-EF5FDE8EB999}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C05B868-AEF1-46A3-80FB-EF5FDE8EB999}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0FAD15C7-EADE-47FB-91ED-DDFF63BBE222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0FAD15C7-EADE-47FB-91ED-DDFF63BBE222}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0FAD15C7-EADE-47FB-91ED-DDFF63BBE222}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0FAD15C7-EADE-47FB-91ED-DDFF63BBE222}.Release|Any CPU.Build.0 = Release|Any CPU
 		{881434FA-94C8-480C-A073-71CC118E9AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{881434FA-94C8-480C-A073-71CC118E9AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{881434FA-94C8-480C-A073-71CC118E9AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -34,7 +28,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{0FAD15C7-EADE-47FB-91ED-DDFF63BBE222} = {A93D5A78-8AE5-4FC4-B491-2DCABA3F281C}
 		{881434FA-94C8-480C-A073-71CC118E9AE5} = {A93D5A78-8AE5-4FC4-B491-2DCABA3F281C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

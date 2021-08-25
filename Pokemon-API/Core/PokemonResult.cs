@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Pokemon_API.Data.Models;
 using Pokemon_API.Entities;
+using Pokemon_API.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace Pokemon_API.Core
             HttpResponseMessage response = await client.SendAsync(request);
 
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                throw new HttpRequestException();
+                throw new PokemonNotFoundException(await response.Content.ReadAsStringAsync());
 
             var result = await response.Content.ReadFromJsonAsync<Pokemon>();
             return result;

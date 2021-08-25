@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using Pokemon_API;
 using Pokemon_API.Data.Models;
+using Pokemon_API.Exceptions;
 using System;
 using System.Net.Http;
 using System.Text.Json;
@@ -20,7 +21,7 @@ namespace PokemonAPI.IntegrationTests.Controllers
 
             _httpClient = factory.CreateClient(new WebApplicationFactoryClientOptions
             {
-                BaseAddress = new Uri("http://localhost/pokemon/mewtwo")
+                BaseAddress = new Uri("http://localhost/pokemon/")
             });
         }
 
@@ -31,7 +32,7 @@ namespace PokemonAPI.IntegrationTests.Controllers
         [Fact]
         public async Task GetPokemonModel_ReturnsSuccessStatusCode()
         {
-            var response = await _httpClient.GetAsync("");
+            var response = await _httpClient.GetAsync("mewtwo");
             response.EnsureSuccessStatusCode();
         }
 
@@ -42,7 +43,7 @@ namespace PokemonAPI.IntegrationTests.Controllers
         [Fact]
         public async Task GetPokemonModel_ReturnsContent()
         {
-            var response = await _httpClient.GetAsync("");
+            var response = await _httpClient.GetAsync("mewtwo");
             Assert.NotNull(response.Content);
         }
 
@@ -53,7 +54,7 @@ namespace PokemonAPI.IntegrationTests.Controllers
         [Fact]
         public async Task GetPokemonModel_ReturnsExpectedPokemonModelMediaType()
         {
-            var response = await _httpClient.GetAsync("");
+            var response = await _httpClient.GetAsync("mewtwo");
             Assert.Equal("application/json", response.Content.Headers.ContentType.MediaType);
         }
 
@@ -64,7 +65,7 @@ namespace PokemonAPI.IntegrationTests.Controllers
         [Fact]
         public async Task GetPokemonModel_ReturnsExpectedPokemonModel()
         {
-            var responseStream = await _httpClient.GetStreamAsync("");
+            var responseStream = await _httpClient.GetStreamAsync("mewtwo");
 
             // de-serialize the response to a PokemonModel. Ensure is case insensitive by setting the properties
             var model = await JsonSerializer.DeserializeAsync<PokemonModel>(responseStream,
@@ -89,7 +90,7 @@ namespace PokemonAPI.IntegrationTests.Controllers
         [Fact]
         public async Task GetPokemonModel_ReturnsExpectedPokemonModelContent()
         {
-            var responseStream = await _httpClient.GetStreamAsync("");
+            var responseStream = await _httpClient.GetStreamAsync("mewtwo");
 
             // de-serialize the response to a PokemonModel. Ensure is case insensitive by setting the properties
             var pokemonModelActual = await JsonSerializer.DeserializeAsync<PokemonModel>(responseStream,
@@ -112,6 +113,30 @@ namespace PokemonAPI.IntegrationTests.Controllers
             Assert.Equal(pokemonModelExpected.Name, pokemonModelActual.Name);
             Assert.Equal(pokemonModelExpected.Is_legendary, pokemonModelActual.Is_legendary);
             Assert.Equal(pokemonModelExpected.Description, pokemonModelActual.Description);
+        }
+
+        /// <summary>
+        /// Verify we are receiving the expected PokemonModel. 
+        /// </summary>
+        /// <returns></returns>
+        [Fact]
+        public async Task GetPokemonModel_ReturnsStatusCodeNotFound()
+        {
+            var responseStream = await _httpClient.GetStreamAsync("mewtwo_TEST");
+
+            // de-serialize the response to a PokemonModel. Ensure is case insensitive by setting the properties
+            var pokemonResponseActual = await JsonSerializer.DeserializeAsync<ExceptionPokemon>(responseStream,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+            var pokemonResponseExpected = new ExceptionPokemon("Not Found");
+            pokemonResponseExpected.StatusCode = 404;
+
+            Assert.Equal(pokemonResponseExpected.Message, pokemonResponseActual.Message);
+            Assert.Equal(pokemonResponseExpected.StatusCode, pokemonResponseActual.StatusCode);
+
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Pokemon_API.Exceptions
@@ -15,5 +16,7 @@ namespace Pokemon_API.Exceptions
         {
             Message = message;
         }
+
+      
     }
 }

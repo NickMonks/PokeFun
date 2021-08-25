@@ -122,3 +122,5 @@ C:\Users\nicot\Downloads\PokeFun\Test\PokemonAPI.UnitTests\obj\Debug\net5.0\Poke
 C:\Users\nicot\Downloads\PokeFun\Test\PokemonAPI.UnitTests\obj\Debug\net5.0\ref\PokemonAPI.UnitTests.dll
 C:\Users\nicot\Downloads\PokeFun\Test\PokemonAPI.UnitTests\obj\Debug\net5.0\PokemonAPI.UnitTests.pdb
 C:\Users\nicot\Downloads\PokeFun\Test\PokemonAPI.UnitTests\obj\Debug\net5.0\PokemonAPI.UnitTests.genruntimeconfig.cache
+C:\Users\nicot\Downloads\PokeFun\Test\PokemonAPI.UnitTests\obj\Debug\net5.0\PokemonAPI.UnitTests.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\nicot\Downloads\PokeFun\Test\PokemonAPI.UnitTests\obj\Debug\net5.0\PokemonAPI.UnitTests.MvcApplicationPartsAssemblyInfo.cache

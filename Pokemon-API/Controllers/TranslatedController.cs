@@ -39,9 +39,7 @@ namespace Pokemon_API.Controllers
 
         [HttpGet]
         public async Task<ActionResult<PokemonModel>> Get(string pokemon)
-        {
-            try
-            {
+        { 
 
                 pokemon = pokemon.ToLower();
                 Pokemon entity = await _pokemonAsync.GetPokemonModelAsync(pokemon, _clientFactory);
@@ -51,18 +49,7 @@ namespace Pokemon_API.Controllers
                 // Perform translation:
                 await _pokemonTranslate.TranslateModel(model);
                 return model;
-
-            }
-            catch (Exception ex)
-            {
-
-                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Cannot translate the pokemon description");
-
-            }
         }
-
-        
-
        
     }
 }
