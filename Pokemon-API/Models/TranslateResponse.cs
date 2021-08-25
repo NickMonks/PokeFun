@@ -1,4 +1,4 @@
-﻿namespace Pokemon_API.Controllers
+﻿namespace Pokemon_API.Core
 {
     public class TranslateResponse
     {

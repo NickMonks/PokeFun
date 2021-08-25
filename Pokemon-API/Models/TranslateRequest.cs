@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Pokemon_API.Models
+namespace Pokemon_API.Core
 {
     public class TranslateRequest
     {
