@@ -77,6 +77,11 @@ Response body:
 
 Obviously, the project can be improved quite a lot in different areas. And that's cool, because it means room for improvement!
 
-I wrote main ideas inside the (Project)[] window in Github, but I'll list them here too:
+I wrote main ideas inside the (Project)[https://github.com/NickMonks/PokeFun/projects/1] window in Github, but I'll list them here too:
+
+- API performance improvement, via caching or 
+- Authentication & Authorization via token, to avoid exhausting 3rd party APIs or malicious activity using the AWS Lambda.
+- Unit test and TDD
+- CI/CD deployment using Github actions
 
 
