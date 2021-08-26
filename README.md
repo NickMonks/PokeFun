@@ -73,10 +73,6 @@ Response body:
 }
 ```
 
-### How to build (Developers)
-
-The 
-
 ### Future Improvements
 
 Obviously, the project can be improved quite a lot in different areas. And that's cool, because it means room for improvement!
